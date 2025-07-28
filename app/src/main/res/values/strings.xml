@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">XploreJetCompose</string>
+    <string name="text_welcome_to_san_francisco">Welcome to San Francisco!!</string>
+    <string name="text_damola_onikoyi">Damola Onikoyi</string>
 </resources>
