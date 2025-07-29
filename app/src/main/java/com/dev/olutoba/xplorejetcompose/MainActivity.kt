@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -18,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -61,12 +63,11 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
         Text(
             text = message,
             fontSize = 40.sp,
-            color = Color.Black,
             lineHeight = 40.sp,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .background(Color.White)
-                .padding(8.dp)
+                .padding(all = 8.dp)
 
         )
 
@@ -76,9 +77,9 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
             color = Color.Blue,
             lineHeight = 35.sp,
             modifier = Modifier
-                .padding(16.dp)
+                .padding(all = 16.dp)
                 .background(Color.White)
-                .align(alignment = Alignment.End)
+                .align(alignment = Alignment.CenterHorizontally)
         )
     }
 }
@@ -104,18 +105,66 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
     }
 }
 
+@Composable
+fun ComposeArticleApp() {
+    ArticleCard(
+        title = stringResource(R.string.article_title),
+        shortDescription = stringResource(R.string.article_short_desc),
+        longDescription = stringResource(R.string.article_long_desc),
+        painter = painterResource(R.drawable.bg_compose_background),
+    )
+}
+
+@Composable
+fun ArticleCard(
+    title: String,
+    shortDescription: String,
+    longDescription: String,
+    painter: Painter,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier,
+    ) {
+        Image(
+            painter = painter,
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(all = 8.dp)
+        )
+
+        Text(
+            text = title,
+            fontSize = 24.sp,
+            modifier = modifier.padding(16.dp)
+        )
+
+        Text(
+            text = shortDescription,
+            modifier = modifier
+                .padding(start = 16.dp, end = 16.dp),
+            textAlign = TextAlign.Justify
+        )
+
+        Text(
+            text = longDescription,
+            color = Color.DarkGray,
+            modifier = modifier
+                .padding(16.dp),
+            textAlign = TextAlign.Justify
+        )
+    }
+}
+
 
 @Preview(
     showBackground = true,
     showSystemUi = true,
-    name = "My Preview",
 )
 @Composable
 fun GreetingPreview() {
     XploreJetComposeTheme {
-        GreetingImage(
-            message = stringResource(R.string.text_welcome_to_san_francisco),
-            from = stringResource(R.string.text_damola_onikoyi)
-        )
+        ComposeArticleApp()
     }
 }
