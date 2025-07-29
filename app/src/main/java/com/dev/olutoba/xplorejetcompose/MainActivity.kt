@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -35,19 +34,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Surface(
-                color = MaterialTheme.colorScheme.background,
-                shape = RoundedCornerShape(12.dp),
-                tonalElevation = 4.dp,
-                modifier = Modifier
-                    .padding(16.dp)
-                    .fillMaxSize()
-            ) {
-                GreetingImage(
-                    message = stringResource(R.string.text_welcome_to_san_francisco),
-                    from = stringResource(R.string.text_damola_onikoyi)
-                )
-            }
+
         }
     }
 
@@ -165,6 +152,12 @@ fun ArticleCard(
 @Composable
 fun GreetingPreview() {
     XploreJetComposeTheme {
-        ComposeArticleApp()
+        Surface(
+            color = MaterialTheme.colorScheme.background,
+            modifier = Modifier
+                .fillMaxSize()
+        ) {
+            ComposeArticleApp()
+        }
     }
 }
