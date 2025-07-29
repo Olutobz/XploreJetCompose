@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -25,6 +26,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.dev.olutoba.xplorejetcompose.ui.theme.ColumnTitleColor
+import com.dev.olutoba.xplorejetcompose.ui.theme.ImageTitleColor
+import com.dev.olutoba.xplorejetcompose.ui.theme.RowTitleColor
+import com.dev.olutoba.xplorejetcompose.ui.theme.TextTitleColor
 import com.dev.olutoba.xplorejetcompose.ui.theme.XploreJetComposeTheme
 
 
@@ -41,7 +46,7 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
+private fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.Center,
@@ -72,7 +77,7 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
 
 
 @Composable
-fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
+private fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
         Image(
             painter = painterResource(R.drawable.androidparty),
@@ -92,7 +97,7 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
 }
 
 @Composable
-fun ComposeArticleApp() {
+private fun ComposeArticleApp() {
     ArticleCard(
         title = stringResource(R.string.article_title),
         shortDescription = stringResource(R.string.article_short_desc),
@@ -102,7 +107,7 @@ fun ComposeArticleApp() {
 }
 
 @Composable
-fun ArticleCard(
+private fun ArticleCard(
     title: String,
     shortDescription: String,
     longDescription: String,
@@ -128,28 +133,25 @@ fun ArticleCard(
 
         Text(
             text = shortDescription,
-            modifier = modifier
-                .padding(start = 16.dp, end = 16.dp),
-            textAlign = TextAlign.Justify
+            textAlign = TextAlign.Justify,
+            modifier = modifier.padding(start = 16.dp, end = 16.dp)
         )
 
         Text(
             text = longDescription,
             color = Color.DarkGray,
-            modifier = modifier
-                .padding(16.dp),
-            textAlign = TextAlign.Justify
+            textAlign = TextAlign.Justify,
+            modifier = modifier.padding(16.dp)
         )
     }
 }
 
 @Composable
-fun TaskCompletedScreen() {
+private fun TaskCompletedScreen() {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .fillMaxSize()
+        modifier = Modifier.fillMaxSize()
     ) {
         Image(
             painter = painterResource(R.drawable.ic_task_completed),
@@ -159,13 +161,79 @@ fun TaskCompletedScreen() {
         Text(
             text = stringResource(R.string.all_tasks_completed),
             fontWeight = FontWeight.Bold,
-            modifier = Modifier
-                .padding(top = 24.dp, bottom = 8.dp)
+            modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)
         )
 
         Text(
             text = stringResource(R.string.nice_work),
             fontSize = 16.sp,
+        )
+    }
+}
+
+@Composable
+private fun ComposeQuadrantApp() {
+    Column(modifier = Modifier.fillMaxSize()) {
+        Row(modifier = Modifier.weight(1f)) {
+            QuadrantInfoCard(
+                title = stringResource(R.string.text_composable_title),
+                description = stringResource(R.string.text_title_description),
+                backgroundColor = TextTitleColor,
+                modifier = Modifier.weight(1f)
+            )
+
+            QuadrantInfoCard(
+                title = stringResource(R.string.image_composable_title),
+                description = stringResource(R.string.img_title_description),
+                backgroundColor = ImageTitleColor,
+                modifier = Modifier.weight(1f)
+            )
+        }
+
+        Row(modifier = Modifier.weight(1f)) {
+            QuadrantInfoCard(
+                title = stringResource(R.string.row_composable_title),
+                description = stringResource(R.string.row_title_description),
+                backgroundColor = RowTitleColor,
+                modifier = Modifier.weight(1f)
+
+            )
+
+            QuadrantInfoCard(
+                title = stringResource(R.string.column_composable_title),
+                description = stringResource(R.string.column_title_description),
+                backgroundColor = ColumnTitleColor,
+                modifier = Modifier.weight(1f)
+            )
+        }
+    }
+
+}
+
+@Composable
+private fun QuadrantInfoCard(
+    title: String,
+    description: String,
+    backgroundColor: Color,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+            .background(backgroundColor)
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Text(
+            text = title,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+
+        Text(
+            text = description,
+            textAlign = TextAlign.Justify
         )
     }
 }
@@ -178,6 +246,6 @@ fun TaskCompletedScreen() {
 @Composable
 fun GreetingPreview() {
     XploreJetComposeTheme {
-        TaskCompletedScreen()
+        ComposeQuadrantApp()
     }
 }
