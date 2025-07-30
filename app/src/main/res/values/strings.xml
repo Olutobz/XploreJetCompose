@@ -21,4 +21,9 @@
     <string name="img_title_description">Creates a composable that lays out and draws a given Painter class object.</string>
     <string name="row_title_description">A layout composable that places its children in a horizontal sequence.</string>
     <string name="column_title_description">A layout composable that places its children in a vertical sequence.</string>
+    <string name="jennifer_doe">Jennifer Doe</string>
+    <string name="android_developer_experience">Android Developer Experience</string>
+    <string name="text_email">damexxey94@gmail.com</string>
+    <string name="text_share_with">\@AndroidDev</string>
+    <string name="text_phone_number">+234 123456789</string>
 </resources>
