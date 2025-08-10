@@ -1,4 +1,4 @@
-package com.dev.olutoba.xplorejetcompose.components
+package com.dev.olutoba.xplorejetcompose.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
