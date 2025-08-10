@@ -83,6 +83,7 @@ private fun BusinessCardApp() {
     }
 }
 
+
 @Composable
 private fun ContactInfoData(
     title: String,
@@ -112,6 +113,7 @@ private fun ContactInfoData(
         )
     }
 }
+
 
 @Composable
 @Preview(showBackground = true)
