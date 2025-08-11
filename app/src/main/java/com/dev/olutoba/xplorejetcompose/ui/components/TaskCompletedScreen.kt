@@ -30,13 +30,13 @@ private fun TaskCompletedScreen() {
         )
 
         Text(
-            text = stringResource(R.string.all_tasks_completed),
+            text = stringResource(R.string.all_tasks_completed_text),
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)
         )
 
         Text(
-            text = stringResource(R.string.nice_work),
+            text = stringResource(R.string.nice_work_text),
             fontSize = 16.sp,
         )
     }

@@ -52,11 +52,11 @@ private fun BusinessCardApp() {
             )
 
             Text(
-                text = stringResource(R.string.damola_onikoyi),
+                text = stringResource(R.string.damola_onikoyi_text),
                 fontSize = 50.sp
             )
 
-            Text(text = stringResource(R.string.android_developer_experience))
+            Text(text = stringResource(R.string.android_developer_experience_text))
         }
 
         Column(
@@ -66,12 +66,12 @@ private fun BusinessCardApp() {
                 .weight(0.2f)
         ) {
             ContactInfoData(
-                title = stringResource(R.string.text_phone_number),
+                title = stringResource(R.string.phone_number_text),
                 icon = painterResource(R.drawable.baseline_call_24)
             )
 
             ContactInfoData(
-                title = stringResource(R.string.text_share_with),
+                title = stringResource(R.string.share_with_text),
                 icon = painterResource(R.drawable.baseline_share_24)
             )
 

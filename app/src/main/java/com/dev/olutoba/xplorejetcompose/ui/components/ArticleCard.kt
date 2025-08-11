@@ -28,8 +28,8 @@ import com.dev.olutoba.xplorejetcompose.R
 private fun ComposeArticleApp() {
     ArticleCardItem(
         title = stringResource(R.string.article_title),
-        shortDescription = stringResource(R.string.article_short_desc),
-        longDescription = stringResource(R.string.article_long_desc),
+        shortDescription = stringResource(R.string.article_short_description),
+        longDescription = stringResource(R.string.article_long_description),
         painter = painterResource(R.drawable.bg_compose_background),
     )
 }
