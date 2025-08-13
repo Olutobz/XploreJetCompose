@@ -3,18 +3,25 @@ package com.dev.olutoba.xplorejetcompose.ui.components
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -26,10 +33,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.dev.olutoba.xplorejetcompose.R
-import kotlin.random.Random
 
 
 /**
@@ -39,63 +43,73 @@ import kotlin.random.Random
  */
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LemonadeApp(modifier: Modifier = Modifier) {
-    var currentStep by remember {
-        mutableIntStateOf(Random.nextInt(from = 1, until = 5))
-    }
+
+    var currentStep by remember { mutableIntStateOf(1) }
 
     var squeezeCount by remember { mutableIntStateOf(0) }
 
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.background
-    ) {
-        when (currentStep) {
-            1 -> {
-                LemonadeTextAndImageItem(
-                    textResourceId = R.string.tap_lemon_tree_text,
-                    contentDescriptionResId = R.string.lemon_tree_content_description,
-                    drawableResId = R.drawable.lemon_tree,
-                    onImageClick = {
-                        currentStep = 2
-                        squeezeCount = (4..7).random()
-                    },
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = { Text(text = stringResource(R.string.lemonade_text)) },
+                colors = TopAppBarDefaults.largeTopAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
                 )
-            }
+            )
+        }
+    ) { innerPadding ->
+        Surface(
+            color = MaterialTheme.colorScheme.background,
+            modifier = modifier
+                .fillMaxSize()
+                .padding(paddingValues = innerPadding)
+                .background(color = MaterialTheme.colorScheme.tertiaryContainer)
+        ) {
+            when (currentStep) {
+                1 -> {
+                    LemonadeTextAndImageItem(
+                        textResourceId = R.string.tap_lemon_tree_text,
+                        contentDescriptionResId = R.string.lemon_tree_content_description,
+                        drawableResId = R.drawable.lemon_tree,
+                        onImageClick = {
+                            currentStep = 2
+                            squeezeCount = (3..6).random()
+                        }
+                    )
+                }
 
-            2 -> {
-                LemonadeTextAndImageItem(
-                    textResourceId = R.string.tap_to_squeeze_lemon_text,
-                    contentDescriptionResId = R.string.squeeze_lemon_content_description,
-                    drawableResId = R.drawable.lemon_squeeze,
-                    onImageClick = {
-                        squeezeCount--
-                        if (squeezeCount == 0) currentStep = 3
-                    }
-                )
-            }
+                2 -> {
+                    LemonadeTextAndImageItem(
+                        textResourceId = R.string.tap_to_squeeze_lemon_text,
+                        contentDescriptionResId = R.string.squeeze_lemon_content_description,
+                        drawableResId = R.drawable.lemon_squeeze,
+                        onImageClick = {
+                            if (squeezeCount == 0) currentStep = 3
+                            squeezeCount--
+                        }
+                    )
+                }
 
-            3 -> {
-                LemonadeTextAndImageItem(
-                    textResourceId = R.string.tap_to_drink_lemon_text,
-                    contentDescriptionResId = R.string.glass_of_lemonade_content_description,
-                    drawableResId = R.drawable.lemon_drink,
-                    onImageClick = {
-                        currentStep = 4
-                    }
-                )
-            }
+                3 -> {
+                    LemonadeTextAndImageItem(
+                        textResourceId = R.string.tap_to_drink_lemon_text,
+                        contentDescriptionResId = R.string.glass_of_lemonade_content_description,
+                        drawableResId = R.drawable.lemon_drink,
+                        onImageClick = { currentStep = 4 }
+                    )
+                }
 
-            4 -> {
-                LemonadeTextAndImageItem(
-                    textResourceId = R.string.tap_to_empty_glass_text,
-                    contentDescriptionResId = R.string.empty_glass_content_description,
-                    drawableResId = R.drawable.lemon_restart,
-                    onImageClick = {
-                        currentStep = 1
-                    }
-                )
+                4 -> {
+                    LemonadeTextAndImageItem(
+                        textResourceId = R.string.tap_to_empty_glass_text,
+                        contentDescriptionResId = R.string.empty_glass_content_description,
+                        drawableResId = R.drawable.lemon_restart,
+                        onImageClick = { currentStep = 1 }
+                    )
+                }
             }
         }
     }
@@ -107,37 +121,41 @@ private fun LemonadeTextAndImageItem(
     @StringRes contentDescriptionResId: Int,
     @DrawableRes drawableResId: Int,
     onImageClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        Button(
-            onClick = onImageClick,
-            shape = RoundedCornerShape(dimensionResource(R.dimen.button_corner_radius)),
-            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)
+    Box(modifier = modifier) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxSize()
         ) {
-            Image(
-                painter = painterResource(drawableResId),
-                contentDescription = stringResource(contentDescriptionResId),
+            Button(
+                onClick = onImageClick,
+                shape = RoundedCornerShape(dimensionResource(R.dimen.button_corner_radius)),
+                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)
+            ) {
+                Image(
+                    painter = painterResource(drawableResId),
+                    contentDescription = stringResource(contentDescriptionResId),
+                    modifier = Modifier
+                        .width(dimensionResource(R.dimen.button_image_width))
+                        .height(dimensionResource(R.dimen.button_image_height))
+                        .padding(dimensionResource(R.dimen.button_interior_padding))
+                )
+            }
+
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_vertical)))
+
+            Text(
+                text = stringResource(textResourceId),
+                style = MaterialTheme.typography.bodyLarge
             )
         }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Text(
-            text = stringResource(textResourceId),
-            fontSize = 18.sp,
-        )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun PreviewLemonadeApp() {
-    LemonadeApp(
-        modifier = Modifier
-            .fillMaxSize()
-            .wrapContentSize()
-    )
+    LemonadeApp()
 }

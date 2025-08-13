@@ -34,6 +34,7 @@
     <string name="tap_to_drink_lemon_text">Tap the lemonade to drink it</string>
     <string name="tap_to_empty_glass_text">Tap the empty glass to start again</string>
     <string name="lemon_tree_content_description">Lemon tree</string>
+    <string name="lemonade_text">Lemonade</string>
     <string name="squeeze_lemon_content_description">Squeeze Lemon</string>
     <string name="glass_of_lemonade_content_description">Glass of lemonade</string>
     <string name="empty_glass_content_description">Empty glass</string>
