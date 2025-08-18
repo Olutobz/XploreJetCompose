@@ -1,7 +1,5 @@
 package com.dev.olutoba.xplorejetcompose.ui.components
 
-import androidx.compose.runtime.Composable
-
 
 /**
  * Created by Onikoyi Damola Olutoba
@@ -10,7 +8,3 @@ import androidx.compose.runtime.Composable
  */
 
 
-@Composable
-fun TipTimeLayout() {
-
-}
