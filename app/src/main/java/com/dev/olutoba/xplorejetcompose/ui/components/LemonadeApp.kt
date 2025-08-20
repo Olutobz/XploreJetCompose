@@ -54,7 +54,9 @@ fun LemonadeApp(modifier: Modifier = Modifier) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text(text = stringResource(R.string.lemonade_text)) },
+                title = {
+                    Text(text = stringResource(R.string.lemonade_text))
+                },
                 colors = TopAppBarDefaults.largeTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
                 )
