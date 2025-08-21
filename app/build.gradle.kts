@@ -83,9 +83,9 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     // Dagger - Hilt
-    implementation(libs.hilt.android)
-    implementation(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
     // Image Loading
     implementation(libs.coil)
@@ -94,7 +94,7 @@ dependencies {
     implementation(libs.androidx.preference.ktx)
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.androidx.room.ktx)
-    implementation(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.runtime)
 
     // Testing
