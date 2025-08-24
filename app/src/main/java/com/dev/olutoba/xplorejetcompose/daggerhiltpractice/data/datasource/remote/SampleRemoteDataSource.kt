@@ -11,11 +11,15 @@ import javax.inject.Inject
  */
 
 class SampleRemoteDataSource @Inject constructor(
-    private val sampleApiService: SampleApiService
+    private val sampleApiService: SampleApiService,
 ) {
 
     fun fetchNetworkCall() {
-        val apiService = sampleApiService.fetchNetworkCall()
+        try {
+            val response = sampleApiService.fetchNetworkCall()
+        } catch (_: Exception) {
+
+        }
     }
 
 }

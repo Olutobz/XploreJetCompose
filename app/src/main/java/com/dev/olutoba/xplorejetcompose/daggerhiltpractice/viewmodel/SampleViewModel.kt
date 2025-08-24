@@ -1,8 +1,10 @@
 package com.dev.olutoba.xplorejetcompose.daggerhiltpractice.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.domain.repository.SampleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -18,4 +20,9 @@ class SampleViewModel @Inject constructor(
     private val repository: SampleRepository
 ) : ViewModel() {
 
+    fun fetchNetworkCall() {
+        viewModelScope.launch {
+            val result = repository.fetchNetworkCall()
+        }
+    }
 }
