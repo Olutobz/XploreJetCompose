@@ -73,7 +73,6 @@ object AppModule {
 
     @Provides
     @Singleton
-    @BaseRetrofit
     fun provideBaseRetrofit(
         @Named("baseUrl") baseUrl: String,
         okHttpClient: OkHttpClient,
