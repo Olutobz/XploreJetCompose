@@ -12,8 +12,16 @@ import javax.inject.Qualifier
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class BaseRetrofitQualifier
+annotation class MainRetrofitInstance
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class XRetrofitQualifier
+annotation class AuthRetrofitInstance
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class MainOkHttpClient
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class AuthOkHttpClient
