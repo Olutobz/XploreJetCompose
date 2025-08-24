@@ -1,13 +1,13 @@
 package com.dev.olutoba.xplorejetcompose.daggerhiltpractice.data.di
 
-import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.api.SampleApiService
-import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.data.datasource.remote.SampleRemoteDataSource
+import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.api.interceptors.AuthInterceptor
 import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.domain.models.Constants.BASE_URL
 import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.domain.models.Constants.CONNECT_TIMEOUT
+import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.domain.models.Constants.FAKE_AUTH_URL
 import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.domain.models.Constants.READ_TIMEOUT
-import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.domain.models.Constants.X_URL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import dagger.Lazy
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,7 +29,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object NetworkModule {
 
     @Provides
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
@@ -54,54 +54,52 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+    @MainOkHttpClient
+    fun provideMainOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
             .connectTimeout(timeout = CONNECT_TIMEOUT, unit = TimeUnit.SECONDS)
             .readTimeout(timeout = READ_TIMEOUT, unit = TimeUnit.SECONDS)
-            .addInterceptor(loggingInterceptor)
             .build()
     }
 
     @Provides
     @Singleton
-    @BaseRetrofitQualifier
-    fun provideBaseRetrofit(
-        okHttpClient: OkHttpClient,
+    @AuthOkHttpClient
+    fun provideAuthOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(authInterceptor)
+            .connectTimeout(timeout = CONNECT_TIMEOUT, unit = TimeUnit.SECONDS)
+            .readTimeout(timeout = READ_TIMEOUT, unit = TimeUnit.SECONDS)
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    @MainRetrofitInstance
+    fun provideMainRetrofitInstance(
+        @MainOkHttpClient okHttpClient: Lazy<OkHttpClient>,
         moshiConverterFactory: MoshiConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .client(okHttpClient)
+            .client(okHttpClient.get())
             .addConverterFactory(moshiConverterFactory)
             .build()
     }
 
     @Provides
     @Singleton
-    @XRetrofitQualifier
-    fun provideXRetrofit(
-        okHttpClient: OkHttpClient,
+    @AuthRetrofitInstance
+    fun provideAuthRetrofitInstance(
+        @AuthOkHttpClient okHttpClient: Lazy<OkHttpClient>,
         moshiConverterFactory: MoshiConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(X_URL)
-            .client(okHttpClient)
+            .baseUrl(FAKE_AUTH_URL)
+            .client(okHttpClient.get())
             .addConverterFactory(moshiConverterFactory)
             .build()
-    }
-
-    @Provides
-    @Singleton
-    fun provideSampleApiService(retrofit: Retrofit): SampleApiService {
-        return retrofit.create(SampleApiService::class.java)
-    }
-
-    @Provides
-    @Singleton
-    fun provideSampleRemoteDataSource(
-        sampleApiService: SampleApiService
-    ): SampleRemoteDataSource {
-        return SampleRemoteDataSource(sampleApiService)
     }
 
 }

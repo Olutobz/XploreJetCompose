@@ -9,7 +9,7 @@ package com.dev.olutoba.xplorejetcompose.daggerhiltpractice.domain.models
 
 object Constants {
     const val BASE_URL = "https://github.com/Olutobz"
-    const val X_URL = "https://x.com/IkoyiOlutoba"
+    const val FAKE_AUTH_URL = "https://google.com/fakeAuth"
     const val CONNECT_TIMEOUT = 15L
     const val READ_TIMEOUT = 15L
 }
