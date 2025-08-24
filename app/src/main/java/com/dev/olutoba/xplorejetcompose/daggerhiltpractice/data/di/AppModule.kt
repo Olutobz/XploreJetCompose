@@ -17,7 +17,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
-import javax.inject.Named
 import javax.inject.Singleton
 
 
@@ -31,14 +30,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-
-    @Provides
-    @Named("baseUrl")
-    fun provideBaseUrl(): String = BASE_URL
-
-    @Provides
-    @Named("XbaseUrl")
-    fun provideXBaseUrl(): String = X_URL
 
     @Provides
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
@@ -73,13 +64,13 @@ object AppModule {
 
     @Provides
     @Singleton
+    @BaseRetrofitQualifier
     fun provideBaseRetrofit(
-        @Named("baseUrl") baseUrl: String,
         okHttpClient: OkHttpClient,
         moshiConverterFactory: MoshiConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(moshiConverterFactory)
             .build()
@@ -87,13 +78,13 @@ object AppModule {
 
     @Provides
     @Singleton
+    @XRetrofitQualifier
     fun provideXRetrofit(
-        @Named("XbaseUrl") baseUrl: String,
         okHttpClient: OkHttpClient,
         moshiConverterFactory: MoshiConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(X_URL)
             .client(okHttpClient)
             .addConverterFactory(moshiConverterFactory)
             .build()
