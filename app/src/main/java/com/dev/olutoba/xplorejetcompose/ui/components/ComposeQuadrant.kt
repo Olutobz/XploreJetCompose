@@ -21,6 +21,7 @@ import com.dev.olutoba.xplorejetcompose.ui.theme.ColumnTitleColor
 import com.dev.olutoba.xplorejetcompose.ui.theme.ImageTitleColor
 import com.dev.olutoba.xplorejetcompose.ui.theme.RowTitleColor
 import com.dev.olutoba.xplorejetcompose.ui.theme.TextTitleColor
+import com.dev.olutoba.xplorejetcompose.ui.theme.XploreJetComposeTheme
 
 
 /**
@@ -55,7 +56,6 @@ private fun ComposeQuadrantApp() {
                 description = stringResource(R.string.row_title_description),
                 backgroundColor = RowTitleColor,
                 modifier = Modifier.weight(1f)
-
             )
 
             QuadrantInfoCardItem(
@@ -101,5 +101,7 @@ private fun QuadrantInfoCardItem(
 @Preview(showBackground = true)
 @Composable
 fun PreviewComposeQuadrant() {
-    ComposeQuadrantApp()
+    XploreJetComposeTheme {
+        ComposeQuadrantApp()
+    }
 }
