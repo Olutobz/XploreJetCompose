@@ -3,7 +3,9 @@ package com.dev.olutoba.xplorejetcompose.ui.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,11 +31,15 @@ private fun TaskCompletedScreen() {
             contentDescription = null
         )
 
+        Spacer(modifier = Modifier.height(8.dp))
+
         Text(
             text = stringResource(R.string.all_tasks_completed_text),
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)
+            modifier = Modifier.padding(top = 8.dp, bottom = 8.dp)
         )
+
+        Spacer(modifier = Modifier.height(8.dp))
 
         Text(
             text = stringResource(R.string.nice_work_text),
