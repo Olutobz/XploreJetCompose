@@ -1,6 +1,7 @@
 package com.dev.olutoba.xplorejetcompose.ui.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dev.olutoba.xplorejetcompose.R
+import com.dev.olutoba.xplorejetcompose.ui.theme.XploreJetComposeTheme
 
 
 /**
@@ -30,7 +32,8 @@ import com.dev.olutoba.xplorejetcompose.R
 
 
 @Composable
-fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
+fun DiceWithButtonAndImage() {
+
     var result by remember { mutableIntStateOf(1) }
     val drawableResource = when (result) {
         1 -> R.drawable.dice_1
@@ -42,8 +45,11 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
     }
 
     Column(
-        modifier = modifier,
+        verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize()
+            .wrapContentSize()
     ) {
         Image(
             painter = painterResource(drawableResource),
@@ -58,12 +64,11 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun PreviewDiceRoller() {
-    DiceWithButtonAndImage(
-        modifier = Modifier
-            .fillMaxSize()
-            .wrapContentSize()
-    )
+    XploreJetComposeTheme {
+        DiceWithButtonAndImage()
+    }
 }
