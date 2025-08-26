@@ -3,9 +3,7 @@ package com.dev.olutoba.xplorejetcompose.ui.components
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -68,7 +66,6 @@ fun LemonadeApp(modifier: Modifier = Modifier) {
             modifier = modifier
                 .fillMaxSize()
                 .padding(paddingValues = innerPadding)
-                .background(color = MaterialTheme.colorScheme.tertiaryContainer)
         ) {
             when (currentStep) {
                 1 -> {
@@ -123,38 +120,37 @@ private fun LemonadeTextAndImageItem(
     @StringRes contentDescriptionResId: Int,
     @DrawableRes drawableResId: Int,
     onImageClick: () -> Unit,
-    modifier: Modifier = Modifier
 ) {
-    Box(modifier = modifier) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-            modifier = Modifier.fillMaxSize()
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        Button(
+            onClick = onImageClick,
+            shape = RoundedCornerShape(dimensionResource(R.dimen.button_corner_radius)),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.tertiaryContainer
+            )
         ) {
-            Button(
-                onClick = onImageClick,
-                shape = RoundedCornerShape(dimensionResource(R.dimen.button_corner_radius)),
-                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)
-            ) {
-                Image(
-                    painter = painterResource(drawableResId),
-                    contentDescription = stringResource(contentDescriptionResId),
-                    modifier = Modifier
-                        .width(dimensionResource(R.dimen.button_image_width))
-                        .height(dimensionResource(R.dimen.button_image_height))
-                        .padding(dimensionResource(R.dimen.button_interior_padding))
-                )
-            }
-
-            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_vertical)))
-
-            Text(
-                text = stringResource(textResourceId),
-                style = MaterialTheme.typography.bodyLarge
+            Image(
+                painter = painterResource(drawableResId),
+                contentDescription = stringResource(contentDescriptionResId),
+                modifier = Modifier
+                    .width(dimensionResource(R.dimen.button_image_width))
+                    .height(dimensionResource(R.dimen.button_image_height))
+                    .padding(dimensionResource(R.dimen.button_interior_padding))
             )
         }
+
+        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_vertical)))
+
+        Text(
+            text = stringResource(textResourceId),
+            style = MaterialTheme.typography.bodyLarge
+        )
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
