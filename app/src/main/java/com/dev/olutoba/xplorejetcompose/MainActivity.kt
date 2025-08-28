@@ -3,9 +3,10 @@ package com.dev.olutoba.xplorejetcompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.dev.olutoba.xplorejetcompose.ui.components.LemonadeApp
+import com.dev.olutoba.xplorejetcompose.ui.components.TipTimeLayout
 import com.dev.olutoba.xplorejetcompose.ui.theme.XploreJetComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +17,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             XploreJetComposeTheme {
-                LemonadeApp()
+                Surface {
+                    TipTimeLayout()
+                }
             }
         }
     }
@@ -28,6 +31,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     XploreJetComposeTheme {
-        LemonadeApp()
+        Surface {
+            TipTimeLayout()
+        }
     }
 }
