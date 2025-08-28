@@ -1,6 +1,6 @@
-package com.dev.olutoba.xplorejetcompose.daggerhiltpractice.data.datasource.remote
+package com.dev.olutoba.xplorejetcompose.daggerhilt.data.datasource.remote
 
-import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.api.SampleApiService
+import com.dev.olutoba.xplorejetcompose.daggerhilt.api.SampleApiService
 import javax.inject.Inject
 
 

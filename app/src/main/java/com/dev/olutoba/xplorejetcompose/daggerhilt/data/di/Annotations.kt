@@ -1,4 +1,4 @@
-package com.dev.olutoba.xplorejetcompose.daggerhiltpractice.data.di
+package com.dev.olutoba.xplorejetcompose.daggerhilt.data.di
 
 import javax.inject.Qualifier
 

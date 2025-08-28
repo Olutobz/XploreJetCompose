@@ -1,6 +1,6 @@
-package com.dev.olutoba.xplorejetcompose.daggerhiltpractice.data.di
+package com.dev.olutoba.xplorejetcompose.daggerhilt.data.di
 
-import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.api.AuthApiService
+import com.dev.olutoba.xplorejetcompose.daggerhilt.api.SampleApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,12 +18,12 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AuthApiServiceModule {
+object MainApiServiceModule {
 
     @Provides
     @Singleton
-    fun provideAuthApiService(
-        @AuthRetrofitInstance retrofit: Retrofit
-    ): AuthApiService = retrofit.create(AuthApiService::class.java)
+    fun provideSampleApiService(
+        @MainRetrofitInstance retrofit: Retrofit
+    ): SampleApiService = retrofit.create(SampleApiService::class.java)
 
 }

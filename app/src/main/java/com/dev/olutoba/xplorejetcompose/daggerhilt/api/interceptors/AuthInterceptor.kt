@@ -1,4 +1,4 @@
-package com.dev.olutoba.xplorejetcompose.daggerhiltpractice.api.interceptors
+package com.dev.olutoba.xplorejetcompose.daggerhilt.api.interceptors
 
 import okhttp3.Interceptor
 import okhttp3.Response

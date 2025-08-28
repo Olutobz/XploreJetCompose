@@ -1,8 +1,8 @@
-package com.dev.olutoba.xplorejetcompose.daggerhiltpractice.viewmodel
+package com.dev.olutoba.xplorejetcompose.daggerhilt.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.domain.repository.SampleRepository
+import com.dev.olutoba.xplorejetcompose.daggerhilt.domain.repository.SampleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

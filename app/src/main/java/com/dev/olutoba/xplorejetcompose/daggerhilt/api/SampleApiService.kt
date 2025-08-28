@@ -1,4 +1,4 @@
-package com.dev.olutoba.xplorejetcompose.daggerhiltpractice.api
+package com.dev.olutoba.xplorejetcompose.daggerhilt.api
 
 import retrofit2.http.GET
 

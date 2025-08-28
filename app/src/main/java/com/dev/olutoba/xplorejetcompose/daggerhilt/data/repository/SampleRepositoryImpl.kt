@@ -1,7 +1,7 @@
-package com.dev.olutoba.xplorejetcompose.daggerhiltpractice.data.repository
+package com.dev.olutoba.xplorejetcompose.daggerhilt.data.repository
 
-import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.data.datasource.remote.SampleRemoteDataSource
-import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.domain.repository.SampleRepository
+import com.dev.olutoba.xplorejetcompose.daggerhilt.data.datasource.remote.SampleRemoteDataSource
+import com.dev.olutoba.xplorejetcompose.daggerhilt.domain.repository.SampleRepository
 import javax.inject.Inject
 
 

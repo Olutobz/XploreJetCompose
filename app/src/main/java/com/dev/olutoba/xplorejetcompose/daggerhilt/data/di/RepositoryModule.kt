@@ -1,7 +1,7 @@
-package com.dev.olutoba.xplorejetcompose.daggerhiltpractice.data.di
+package com.dev.olutoba.xplorejetcompose.daggerhilt.data.di
 
-import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.data.repository.SampleRepositoryImpl
-import com.dev.olutoba.xplorejetcompose.daggerhiltpractice.domain.repository.SampleRepository
+import com.dev.olutoba.xplorejetcompose.daggerhilt.data.repository.SampleRepositoryImpl
+import com.dev.olutoba.xplorejetcompose.daggerhilt.domain.repository.SampleRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

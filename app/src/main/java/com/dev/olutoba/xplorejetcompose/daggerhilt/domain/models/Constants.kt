@@ -1,4 +1,4 @@
-package com.dev.olutoba.xplorejetcompose.daggerhiltpractice.domain.models
+package com.dev.olutoba.xplorejetcompose.daggerhilt.domain.models
 
 
 /**
