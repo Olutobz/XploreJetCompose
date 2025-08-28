@@ -21,7 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -46,7 +46,7 @@ import com.dev.olutoba.xplorejetcompose.utils.calculateTip
 
 @Composable
 fun TipTimeLayout() {
-    var amountInput by remember { mutableStateOf("") }
+    var amountInput by rememberSaveable { mutableStateOf("") }
     val amount = amountInput.toDoubleOrNull() ?: 0.0
     val tip = calculateTip(billAmount = amount)
 
