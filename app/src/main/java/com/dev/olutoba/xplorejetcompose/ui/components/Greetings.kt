@@ -40,8 +40,8 @@ private fun GreetingImage(modifier: Modifier = Modifier) {
         )
 
         GreetingText(
-            message = stringResource(R.string.welcome_to_the_united_states_olutoba),
-            from = stringResource(R.string.us_embassy_visa_office),
+            message = stringResource(R.string.welcome_to_the_united_states_olutoba_text),
+            from = stringResource(R.string.us_embassy_visa_office_text),
             modifier = Modifier
                 .fillMaxSize()
                 .padding(8.dp)
