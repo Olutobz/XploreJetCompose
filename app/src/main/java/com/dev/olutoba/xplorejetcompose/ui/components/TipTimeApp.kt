@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -47,8 +48,12 @@ import com.dev.olutoba.xplorejetcompose.utils.calculateTip
 @Composable
 fun TipTimeLayout() {
     var amountInput by rememberSaveable { mutableStateOf("") }
-    val amount = amountInput.toDoubleOrNull() ?: 0.0
-    val tip = calculateTip(billAmount = amount)
+    var tipPercentInput by rememberSaveable { mutableStateOf("") }
+
+    val billAmount = amountInput.toDoubleOrNull() ?: 0.0
+    val tipPercent = tipPercentInput.toDoubleOrNull() ?: 0.0
+
+    val actualTip = calculateTip(billAmount = billAmount, tipPercent = tipPercent)
 
     Column(
         verticalArrangement = Arrangement.Center,
@@ -72,13 +77,27 @@ fun TipTimeLayout() {
             onValueChange = { amountInput = it },
             labelTextResId = R.string.bill_amount_text,
             supportingTextResId = R.string.not_a_valid_amount_text,
+            imeAction = ImeAction.Next,
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        EditNumberField(
+            value = tipPercentInput,
+            onValueChange = { tipPercentInput = it },
+            labelTextResId = R.string.tip_percentage_text,
+            supportingTextResId = R.string.not_a_valid_amount_text,
+            leadingIconDrawableResId = R.drawable.ic_percentage,
+            leadingIconContentDesc = R.string.percentage_icon_content_desc,
+            imeAction = ImeAction.Done,
             modifier = Modifier.fillMaxWidth()
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            text = stringResource(R.string.tip_amount_text, tip),
+            text = stringResource(R.string.tip_amount_text, actualTip),
             style = MaterialTheme.typography.displaySmall,
             fontSize = 28.sp,
             fontWeight = FontWeight.Bold,
@@ -94,10 +113,11 @@ private fun EditNumberField(
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
     keyboardType: KeyboardType = KeyboardType.Number,
+    imeAction: ImeAction = ImeAction.Default,
     @StringRes labelTextResId: Int,
     @StringRes supportingTextResId: Int,
-    @StringRes leadingIconContentDesc: Int = R.string.dollar_icon_text,
-    @DrawableRes leadingIconDrawableResId: Int = R.drawable.ic_dollar_currency
+    @DrawableRes leadingIconDrawableResId: Int = R.drawable.ic_dollar_currency,
+    @StringRes leadingIconContentDesc: Int = R.string.dollar_icon_content_desc
 ) {
     OutlinedTextField(
         value = value,
@@ -111,7 +131,10 @@ private fun EditNumberField(
             )
         },
         singleLine = true,
-        keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+        keyboardOptions = KeyboardOptions.Default.copy(
+            keyboardType = keyboardType,
+            imeAction = imeAction
+        ),
         modifier = modifier
     )
 }
