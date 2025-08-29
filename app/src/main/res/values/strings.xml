@@ -44,7 +44,7 @@
     <string name="bill_amount_text">Bill Amount</string>
     <string name="tip_percentage_text">Tip Percentage</string>
     <string name="tip_amount_text">Tip Amount: %s</string>
-    <string name="not_a_valid_amount_text">Not a valid amount</string>
+    <string name="please_enter_a_valid_amount_text">Please enter a valid amount</string>
     <string name="dollar_icon_content_desc">Dollar Icon</string>
     <string name="percentage_icon_content_desc">Percentage Icon</string>
     <string name="round_up_tip_text">Round up tip?</string>
