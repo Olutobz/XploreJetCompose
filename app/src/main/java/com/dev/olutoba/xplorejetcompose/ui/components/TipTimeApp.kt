@@ -136,8 +136,7 @@ fun SwitchWithTextField(
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier
-            .fillMaxSize()
+        modifier = modifier.fillMaxSize()
     ) {
         Text(text = stringResource(text), textAlign = TextAlign.Start)
 
