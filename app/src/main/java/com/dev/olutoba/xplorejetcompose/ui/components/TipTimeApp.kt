@@ -48,7 +48,6 @@ import com.dev.olutoba.xplorejetcompose.utils.calculateTip
  * EMAIL: damexxey94@gmail.com
  */
 
-
 @Composable
 fun TipTimeLayout() {
     var amountInput by rememberSaveable { mutableStateOf("") }
