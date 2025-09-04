@@ -61,7 +61,7 @@ fun TipTimeLayout() {
     val actualTip = calculateTip(
         billAmount = billAmount,
         tipPercent = tipPercent,
-        isRoundUp = isRoundedUp
+        isRoundedUp = isRoundedUp
     )
 
     Column(

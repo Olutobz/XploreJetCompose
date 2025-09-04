@@ -18,13 +18,14 @@ class UtilsTest {
         val amount = 150.50
         val tipPercent = 20.0
         val roundUp = false
+
+        val expectedTip = NumberFormat.getCurrencyInstance().format(30.1)
+
         val actualTip = calculateTip(
             billAmount = amount,
             tipPercent = tipPercent,
-            isRoundUp = roundUp
+            isRoundedUp = roundUp
         )
-
-        val expectedTip = NumberFormat.getCurrencyInstance().format(30.1)
 
         assertEquals(expectedTip, actualTip)
     }
@@ -34,13 +35,14 @@ class UtilsTest {
         val amount = 150.40
         val tipPercent = 20.0
         val roundUp = false
+
+        val expectedTip = NumberFormat.getCurrencyInstance().format(31)
+
         val actualTip = calculateTip(
             billAmount = amount,
             tipPercent = tipPercent,
-            isRoundUp = roundUp
+            isRoundedUp = roundUp
         )
-
-        val expectedTip = NumberFormat.getCurrencyInstance().format(31)
 
         assertNotEquals(expectedTip, actualTip)
     }
@@ -50,13 +52,14 @@ class UtilsTest {
         val amount = 150.50
         val tipPercent = 20.0
         val roundUp = true
+
+        val expectedTip = NumberFormat.getCurrencyInstance().format(31)
+
         val actualTip = calculateTip(
             billAmount = amount,
             tipPercent = tipPercent,
-            isRoundUp = roundUp
+            isRoundedUp = roundUp
         )
-
-        val expectedTip = NumberFormat.getCurrencyInstance().format(31)
 
         assertEquals(expectedTip, actualTip)
     }
@@ -66,13 +69,14 @@ class UtilsTest {
         val amount = 150.50
         val tipPercent = 20.0
         val roundUp = true
+
+        val expectedTip = NumberFormat.getCurrencyInstance().format(30.1)
+
         val actualTip = calculateTip(
             billAmount = amount,
             tipPercent = tipPercent,
-            isRoundUp = roundUp
+            isRoundedUp = roundUp
         )
-
-        val expectedTip = NumberFormat.getCurrencyInstance().format(30.1)
 
         assertNotEquals(expectedTip, actualTip)
     }
