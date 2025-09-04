@@ -1,5 +1,4 @@
-package com.dev.olutoba.xplorejetcompose.daggerhilt.domain.models
-
+package com.dev.olutoba.xplorejetcompose.utils
 
 /**
  * Created by Onikoyi Damola Olutoba
@@ -12,4 +11,6 @@ object Constants {
     const val FAKE_AUTH_URL = "https://google.com/fakeAuth"
     const val CONNECT_TIMEOUT = 15L
     const val READ_TIMEOUT = 15L
+    const val DEFAULT_AMOUNT = 0.0
+    const val ROUND_UP_SWITCH = "ROUND_UP_SWITCH"
 }

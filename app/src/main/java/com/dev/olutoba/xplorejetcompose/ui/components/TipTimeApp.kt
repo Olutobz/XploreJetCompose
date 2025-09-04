@@ -28,6 +28,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -39,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dev.olutoba.xplorejetcompose.R
 import com.dev.olutoba.xplorejetcompose.ui.theme.XploreJetComposeTheme
+import com.dev.olutoba.xplorejetcompose.utils.Constants
 import com.dev.olutoba.xplorejetcompose.utils.calculateTip
 
 
@@ -55,8 +57,8 @@ fun TipTimeLayout() {
     var isRoundedUp by rememberSaveable { mutableStateOf(false) }
 
     val isError = amountInput.isNotEmpty() && amountInput.toDoubleOrNull() == null
-    val billAmount = amountInput.toDoubleOrNull() ?: 0.0
-    val tipPercent = tipPercentInput.toDoubleOrNull() ?: 0.0
+    val billAmount = amountInput.toDoubleOrNull() ?: Constants.DEFAULT_AMOUNT
+    val tipPercent = tipPercentInput.toDoubleOrNull() ?: Constants.DEFAULT_AMOUNT
 
     val actualTip = calculateTip(
         billAmount = billAmount,
@@ -126,7 +128,7 @@ fun TipTimeLayout() {
 }
 
 @Composable
-fun SwitchWithTextField(
+private fun SwitchWithTextField(
     @StringRes text: Int,
     roundUp: Boolean,
     onRoundUpChange: (Boolean) -> Unit,
@@ -143,7 +145,8 @@ fun SwitchWithTextField(
 
         Switch(
             checked = roundUp,
-            onCheckedChange = onRoundUpChange
+            onCheckedChange = onRoundUpChange,
+            modifier = Modifier.testTag(Constants.ROUND_UP_SWITCH)
         )
     }
 }

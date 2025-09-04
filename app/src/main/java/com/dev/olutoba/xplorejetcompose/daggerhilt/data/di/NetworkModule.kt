@@ -1,10 +1,10 @@
 package com.dev.olutoba.xplorejetcompose.daggerhilt.data.di
 
 import com.dev.olutoba.xplorejetcompose.daggerhilt.api.interceptors.AuthInterceptor
-import com.dev.olutoba.xplorejetcompose.daggerhilt.domain.models.Constants.BASE_URL
-import com.dev.olutoba.xplorejetcompose.daggerhilt.domain.models.Constants.CONNECT_TIMEOUT
-import com.dev.olutoba.xplorejetcompose.daggerhilt.domain.models.Constants.FAKE_AUTH_URL
-import com.dev.olutoba.xplorejetcompose.daggerhilt.domain.models.Constants.READ_TIMEOUT
+import com.dev.olutoba.xplorejetcompose.utils.Constants.BASE_URL
+import com.dev.olutoba.xplorejetcompose.utils.Constants.CONNECT_TIMEOUT
+import com.dev.olutoba.xplorejetcompose.utils.Constants.FAKE_AUTH_URL
+import com.dev.olutoba.xplorejetcompose.utils.Constants.READ_TIMEOUT
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Lazy
