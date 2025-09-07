@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.dev.olutoba.xplorejetcompose.ui.components.TipTimeLayout
+import com.dev.olutoba.xplorejetcompose.ui.components.ArtSpaceLayout
 import com.dev.olutoba.xplorejetcompose.ui.theme.XploreJetComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             XploreJetComposeTheme {
                 Surface {
-                    TipTimeLayout()
+                    ArtSpaceLayout()
                 }
             }
         }
@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
 fun GreetingPreview() {
     XploreJetComposeTheme {
         Surface {
-            TipTimeLayout()
+            ArtSpaceLayout()
         }
     }
 }

@@ -48,5 +48,16 @@
     <string name="dollar_icon_content_desc">Dollar Icon</string>
     <string name="percentage_icon_content_desc">Percentage Icon</string>
     <string name="round_up_tip_text">Round up tip?</string>
+    <string name="golden_gate_bridge_content_desc">Golden gate bridge image</string>
+    <string name="lombard_street_content_desc">lombard street image</string>
+    <string name="cable_car_content_desc">Cable car image</string>
+    <string name="statue_of_liberty_content_desc">Statue of liberty image</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="sf_dream_as_an_android_engineer">You are now an Android Software Engineer living your dream in San Francisco!</string>
+    <string name="sf_riding_cable_car">One day you will enjoy the ride in San Francisco cable car!</string>
+    <string name="sf_cruising_lombard_street">One day you will drive and walk through the famous lombard street in San Francisco!</string>
+    <string name="ny_statue_of_liberty">One day you will visit and take photos around the statue of liberty in New York!</string>
+    <string name="my_name_year_signature">Damola Olutoba Onikoyi (Sept 7, 2025)</string>
 
 </resources>

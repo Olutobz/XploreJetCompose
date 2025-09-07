@@ -20,6 +20,7 @@ val onBackground = Color(0xFF1C1B1F)
 val surface = Color(0xFFFFFBFE)
 val onSurface = Color(0xFF1C1B1F)
 
+val ButtonBackgroundColor = Color(0xFF3C4A64)
 val TextTitleColor = Color(0xFFEADDFF)
 val ImageTitleColor = Color(0xFFD0BCFF)
 val RowTitleColor = Color(0xFFB69DF8)
