@@ -44,9 +44,7 @@ import com.dev.olutoba.xplorejetcompose.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LemonadeApp(modifier: Modifier = Modifier) {
-
     var currentStep by remember { mutableIntStateOf(1) }
-
     var squeezeCount by remember { mutableIntStateOf(0) }
 
     Scaffold(
@@ -55,7 +53,7 @@ fun LemonadeApp(modifier: Modifier = Modifier) {
                 title = {
                     Text(text = stringResource(R.string.lemonade_text))
                 },
-                colors = TopAppBarDefaults.largeTopAppBarColors(
+                colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
                 )
             )
