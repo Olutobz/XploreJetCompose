@@ -17,7 +17,7 @@ internal fun calculateTip(
 }
 
 internal fun getArtPieceItem(counter: Int): ArtPiece {
-    val artPiece = when (counter) {
+    return when (counter) {
         1 -> ArtPiece(
             drawableResId = R.drawable.img_golden_gate_bridge,
             contentDescriptionResId = R.string.golden_gate_bridge_content_desc,
@@ -40,7 +40,6 @@ internal fun getArtPieceItem(counter: Int): ArtPiece {
             drawableResId = R.drawable.img_statue_of_liberty_newyork,
             contentDescriptionResId = R.string.statue_of_liberty_content_desc,
             descriptionResId = R.string.ny_statue_of_liberty
-
         )
 
         else -> ArtPiece(
@@ -49,6 +48,4 @@ internal fun getArtPieceItem(counter: Int): ArtPiece {
             descriptionResId = R.string.sf_dream_as_an_android_engineer
         )
     }
-
-    return artPiece
 }

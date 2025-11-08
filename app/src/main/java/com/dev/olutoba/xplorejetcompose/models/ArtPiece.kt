@@ -11,7 +11,7 @@ import androidx.annotation.StringRes
  */
 
 data class ArtPiece(
-    @DrawableRes val drawableResId: Int,
-    @StringRes val contentDescriptionResId: Int,
-    @StringRes val descriptionResId: Int
+    @param:DrawableRes val drawableResId: Int,
+    @param:StringRes val contentDescriptionResId: Int,
+    @param:StringRes val descriptionResId: Int
 )
