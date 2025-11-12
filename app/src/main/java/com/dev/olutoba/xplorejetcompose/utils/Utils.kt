@@ -37,7 +37,7 @@ internal fun getArtPieceItem(counter: Int): ArtPiece {
         )
 
         4 -> ArtPiece(
-            drawableResId = R.drawable.img_statue_of_liberty_newyork,
+            drawableResId = R.drawable.img_ny_statue_of_liberty,
             contentDescriptionResId = R.string.statue_of_liberty_content_desc,
             descriptionResId = R.string.ny_statue_of_liberty
         )
