@@ -1,4 +1,4 @@
-package com.dev.olutoba.xplorejetcompose.daggerhilt.viewmodel
+package com.dev.olutoba.xplorejetcompose.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
