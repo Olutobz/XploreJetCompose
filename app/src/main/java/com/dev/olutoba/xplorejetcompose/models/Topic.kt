@@ -11,7 +11,7 @@ import androidx.annotation.StringRes
  */
 
 data class Topic(
-    val id: Int,
-    @param:StringRes val topicStringResourceId: Int,
-    @param:DrawableRes val topicDrawableResourceId: Int
+    val availableCourses: Int,
+    @param:StringRes val topicNameResourceId: Int,
+    @param:DrawableRes val topicImageResourceId: Int
 )
