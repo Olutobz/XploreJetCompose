@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -23,6 +24,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dev.olutoba.xplorejetcompose.R
@@ -59,8 +61,8 @@ fun TopicScreen() {
 fun TopicGridList(modifier: Modifier = Modifier) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(minSize = 150.dp),
-        horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small)),
-        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small)),
+        horizontalArrangement = Arrangement.spacedBy(space = dimensionResource(R.dimen.padding_small)),
+        verticalArrangement = Arrangement.spacedBy(space = dimensionResource(R.dimen.padding_small)),
         modifier = modifier
     ) {
         items(items = loadTopics()) { topic ->
@@ -93,6 +95,8 @@ fun TopicCardItem(topic: Topic, modifier: Modifier = Modifier) {
                 Text(
                     text = stringResource(topic.topicNameResourceId),
                     style = MaterialTheme.typography.bodyMedium,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
                     modifier = Modifier.padding(
                         start = dimensionResource(R.dimen.padding_medium),
                         end = dimensionResource(R.dimen.padding_medium),
@@ -108,13 +112,16 @@ fun TopicCardItem(topic: Topic, modifier: Modifier = Modifier) {
                     Icon(
                         painter = painterResource(R.drawable.ic_grain),
                         contentDescription = null,
-                        modifier = Modifier.padding(start = dimensionResource(R.dimen.padding_small))
+                        modifier = Modifier
+                            .padding(start = dimensionResource(R.dimen.padding_small))
+                            .wrapContentHeight()
                     )
 
                     Text(
                         text = topic.availableCourses.toString(),
                         style = MaterialTheme.typography.labelMedium,
-                        modifier = Modifier.padding(start = dimensionResource(R.dimen.padding_small))
+                        modifier = Modifier
+                            .padding(start = dimensionResource(R.dimen.padding_small))
                     )
                 }
             }
