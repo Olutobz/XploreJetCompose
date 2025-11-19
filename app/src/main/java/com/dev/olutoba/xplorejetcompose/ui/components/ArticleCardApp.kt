@@ -10,11 +10,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dev.olutoba.xplorejetcompose.R
 import com.dev.olutoba.xplorejetcompose.ui.theme.XploreJetComposeTheme
@@ -50,28 +50,32 @@ private fun ArticleCardItem(
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(all = 8.dp)
+                .padding(all = dimensionResource(R.dimen.padding_small))
         )
 
         Text(
             text = title,
             fontSize = 24.sp,
             modifier = modifier
-                .padding(16.dp)
+                .padding(all = dimensionResource(R.dimen.padding_medium))
                 .align(Alignment.CenterHorizontally)
         )
 
         Text(
             text = shortDescription,
             textAlign = TextAlign.Justify,
-            modifier = modifier.padding(start = 16.dp, end = 16.dp)
+            modifier = modifier
+                .padding(
+                    start = dimensionResource(R.dimen.padding_medium),
+                    end = dimensionResource(R.dimen.padding_medium)
+                )
         )
 
         Text(
             text = longDescription,
             color = Color.DarkGray,
             textAlign = TextAlign.Justify,
-            modifier = modifier.padding(16.dp)
+            modifier = modifier.padding(dimensionResource(R.dimen.padding_medium))
         )
     }
 }
