@@ -48,7 +48,6 @@ import com.dev.olutoba.xplorejetcompose.utils.getArtPieceItem
 
 @Composable
 fun ArtSpaceLayout() {
-
     var counter by remember { mutableIntStateOf(1) }
     val currArtPieceItem = getArtPieceItem(counter)
 
@@ -75,14 +74,14 @@ fun ArtSpaceLayout() {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        TextDescriptionAndYear(
+        DescriptionAndYearText(
             firstTextStringResId = currArtPieceItem.descriptionResId,
             secondTextStringResId = R.string.my_name_year_signature
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        CustomButtonWithAction(
+        CustomButtonsWithAction(
             firstButtonStringResId = R.string.previous,
             secondButtonStringResId = R.string.next,
             onFirstButtonClick = { if (counter > 0) counter-- else counter = 4 },
@@ -93,7 +92,7 @@ fun ArtSpaceLayout() {
 }
 
 @Composable
-private fun CustomButtonWithAction(
+private fun CustomButtonsWithAction(
     @StringRes firstButtonStringResId: Int,
     @StringRes secondButtonStringResId: Int,
     onFirstButtonClick: () -> Unit,
@@ -123,7 +122,7 @@ private fun CustomButtonWithAction(
 }
 
 @Composable
-private fun TextDescriptionAndYear(
+private fun DescriptionAndYearText(
     @StringRes firstTextStringResId: Int,
     @StringRes secondTextStringResId: Int
 ) {
