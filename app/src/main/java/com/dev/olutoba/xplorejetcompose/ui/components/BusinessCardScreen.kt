@@ -34,7 +34,7 @@ import com.dev.olutoba.xplorejetcompose.ui.theme.LightGreenBackgroundColor
  */
 
 @Composable
-private fun BusinessCardApp() {
+private fun BusinessCardScreen() {
     Column(modifier = Modifier.background(LightGreenBackgroundColor)) {
         Column(
             verticalArrangement = Arrangement.Center,
@@ -118,5 +118,5 @@ private fun ContactInfoData(
 @Composable
 @Preview(showBackground = true)
 fun PreviewBusinessCard() {
-    BusinessCardApp()
+    BusinessCardScreen()
 }
