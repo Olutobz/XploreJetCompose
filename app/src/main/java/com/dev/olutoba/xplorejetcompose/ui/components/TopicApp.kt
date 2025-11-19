@@ -40,7 +40,7 @@ import com.dev.olutoba.xplorejetcompose.models.Topic
 
 
 @Composable
-fun TopicScreen() {
+fun TopicGridScreen() {
     Surface(
         color = MaterialTheme.colorScheme.background,
         modifier = Modifier
@@ -132,6 +132,6 @@ fun TopicCardItem(topic: Topic, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun PreviewTopicScreen() {
-    TopicScreen()
+fun PreviewTopicGridScreen() {
+    TopicGridScreen()
 }
