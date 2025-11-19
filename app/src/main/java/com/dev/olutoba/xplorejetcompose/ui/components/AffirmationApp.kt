@@ -40,7 +40,7 @@ import com.dev.olutoba.xplorejetcompose.models.Affirmation
 
 
 @Composable
-fun AffirmationScreen() {
+fun AffirmationListScreen() {
     val layoutDirection = LocalLayoutDirection.current
     Surface(
         modifier = Modifier
@@ -101,6 +101,6 @@ fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun PreviewAffirmationCard() {
-    AffirmationScreen()
+fun PreviewAffirmationListCard() {
+    AffirmationListScreen()
 }
