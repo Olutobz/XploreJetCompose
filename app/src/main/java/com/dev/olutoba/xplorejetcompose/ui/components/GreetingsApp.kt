@@ -30,7 +30,7 @@ import com.dev.olutoba.xplorejetcompose.R
 
 
 @Composable
-private fun GreetingImage(modifier: Modifier = Modifier) {
+private fun GreetingScreen(modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
         Image(
             painter = painterResource(R.drawable.androidparty),
@@ -81,5 +81,5 @@ private fun GreetingText(message: String, from: String, modifier: Modifier = Mod
 @Preview(showBackground = true)
 @Composable
 fun PreviewGreetings() {
-    GreetingImage()
+    GreetingScreen()
 }

@@ -43,7 +43,7 @@ import com.dev.olutoba.xplorejetcompose.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LemonadeApp(modifier: Modifier = Modifier) {
+fun LemonadeScreen(modifier: Modifier = Modifier) {
     var currentStep by remember { mutableIntStateOf(1) }
     var squeezeCount by remember { mutableIntStateOf(0) }
 
@@ -152,6 +152,6 @@ private fun LemonadeTextAndImageItem(
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewLemonadeApp() {
-    LemonadeApp()
+private fun PreviewLemonadeScreen() {
+    LemonadeScreen()
 }
