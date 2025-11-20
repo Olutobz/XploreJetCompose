@@ -1,7 +1,7 @@
 package com.dev.olutoba.xplorejetcompose.utils
 
 import com.dev.olutoba.xplorejetcompose.R
-import com.dev.olutoba.xplorejetcompose.models.ArtPiece
+import com.dev.olutoba.xplorejetcompose.domain.models.ArtPiece
 import java.text.NumberFormat
 
 internal fun calculateTip(
