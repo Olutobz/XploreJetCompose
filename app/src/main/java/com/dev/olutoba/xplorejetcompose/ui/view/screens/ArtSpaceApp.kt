@@ -1,4 +1,4 @@
-package com.dev.olutoba.xplorejetcompose.ui.view.Screens
+package com.dev.olutoba.xplorejetcompose.ui.view.screens
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image

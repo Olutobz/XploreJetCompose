@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.dev.olutoba.xplorejetcompose.ui.view.Screens.TopicGridScreen
+import com.dev.olutoba.xplorejetcompose.ui.view.screens.TopicGridScreen
 import com.dev.olutoba.xplorejetcompose.ui.theme.XploreJetComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 

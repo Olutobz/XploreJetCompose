@@ -6,8 +6,8 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
-import com.dev.olutoba.xplorejetcompose.ui.view.Screens.TipTimeLayout
 import com.dev.olutoba.xplorejetcompose.ui.theme.XploreJetComposeTheme
+import com.dev.olutoba.xplorejetcompose.ui.view.screens.TipTimeLayout
 import org.junit.Rule
 import org.junit.Test
 import java.text.NumberFormat

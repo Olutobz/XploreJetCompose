@@ -1,4 +1,4 @@
-package com.dev.olutoba.xplorejetcompose.ui.view.Screens
+package com.dev.olutoba.xplorejetcompose.ui.view.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
