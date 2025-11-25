@@ -10,8 +10,9 @@ import androidx.annotation.StringRes
  * EMAIL: damexxey94@gmail.com
  */
 
-data class Woof(
+data class Dog(
     @param:StringRes val name: Int,
-    @param:StringRes val age: Int,
-    @param:DrawableRes val image: Int
+    val age: Int,
+    @param:StringRes val hobbies: Int,
+    @param:DrawableRes val imageResourceId: Int
 )
