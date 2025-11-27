@@ -59,7 +59,7 @@ fun DogScreen() {
                 .statusBarsPadding()
                 .padding(innerPadding)
         ) {
-            DogList()
+            DogsList()
         }
     }
 
@@ -94,7 +94,7 @@ fun DogTopAppBar() {
 
 
 @Composable
-fun DogList() {
+fun DogsList() {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small)),
         modifier = Modifier
