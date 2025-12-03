@@ -5,8 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.dev.olutoba.xplorejetcompose.ui.view.screens.TopicGridScreen
 import com.dev.olutoba.xplorejetcompose.ui.theme.XploreJetComposeTheme
+import com.dev.olutoba.xplorejetcompose.ui.view.screens.DogScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             XploreJetComposeTheme {
-                TopicGridScreen()
+                DogScreen()
             }
         }
     }
@@ -28,6 +28,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     XploreJetComposeTheme {
-        TopicGridScreen()
+        DogScreen()
     }
 }
