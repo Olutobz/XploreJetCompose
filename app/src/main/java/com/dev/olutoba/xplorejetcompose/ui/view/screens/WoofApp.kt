@@ -47,9 +47,9 @@ import com.dev.olutoba.xplorejetcompose.ui.theme.WoofTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DogScreen() {
+fun WoofScreen() {
     Scaffold(
-        topBar = { DogTopAppBar() },
+        topBar = { WoofTopAppBar() },
         modifier = Modifier.padding(8.dp)
     ) { innerPadding ->
         Surface(
@@ -67,7 +67,7 @@ fun DogScreen() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DogTopAppBar() {
+fun WoofTopAppBar() {
     CenterAlignedTopAppBar(
         title = {
             Row(
@@ -156,6 +156,6 @@ fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
 @Composable
 fun PreviewWoofScreen() {
     WoofTheme {
-        DogScreen()
+        WoofScreen()
     }
 }
